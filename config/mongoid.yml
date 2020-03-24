@@ -8,6 +8,12 @@ common: &default_client
     retry_interval: <%= ENV['MONGOID_RETRY_INTERVAL'] || 0 %>
     timeout: <%= ENV['MONGOID_TIMEOUT'] || 0.5 %>
     ssl: <%= ENV['MONGOID_USE_SSL'] || false %>
+    # TODO: Fix hack for Edraak. Move into config variables.
+    auth_mech: :scram
+    connect: :replica_set
+    replica_set: Forum-prod-shard-0
+    ssl_verify: false
+    auth_source: admin
 
 common_uri: &default_uri
   uri: <%= ENV['MONGOHQ_URL'] %>
