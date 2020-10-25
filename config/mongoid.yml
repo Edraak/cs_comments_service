@@ -23,6 +23,8 @@ development:
     default:
       <<: *default_uri
       <<: *default_client
+      options:
+        connect: :direct
 
 test:
   clients:
